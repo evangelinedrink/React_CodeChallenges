@@ -217,3 +217,24 @@ console.log(numbersBiggerThanFour);
 const evenNumbers = numbers.filter(n => n%2===0 ); //Filtering out only the even numbers.  When the number is even and divided by 2, there will be no remainder (remainder will be equal to zero).
 // The below line should console.log: [4, 10]
 console.log(evenNumbers);
+
+
+
+/*Code Challenge 6: Using the Reduce Array Method */
+// 1
+const letters = ['h', 'e', 'l', 'l', 'o']
+const greeting = letters.reduce((accumulator, currentValue) => accumulator + currentValue);  //Using Concatenation Operator (+) to concatenate two string values together: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#string_operators
+// The below line should console.log: "hello"
+console.log(greeting) 
+
+// 2 - uncomment lines 9 and 11
+const numbers = [ 100, 3, 4, 1, 2];
+const total = numbers.reduce((number1, number2) => number1 * number2); //Using reduce to get the total of multiplying all the numbers together in the numbers array.
+// The below line should console.log: 2400
+console.log(total); 
+
+//Bonus - uncomment lines 15 and 17
+const arrays = [["how", "now"], ["brown", "cow"]];
+const flattenedArray = arrays.reduce((arrayElement1, arrayElement2) => arrayElement1.concat(arrayElement2)); //Concat() array method joins two arrays together into one array: https://www.w3schools.com/jsref/jsref_concat_array.asp
+// The below line should console.log: ["how", "now", "brown", "cow"]
+console.log(flattenedArray);
