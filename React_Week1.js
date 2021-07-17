@@ -1,4 +1,5 @@
 /*Code Challenge 1: Template Literals */
+//CodePen Source: https://codepen.io/Hiddenflower/pen/Vwbpjxb
 const cardSuit = "Spades";
 const cardValue = 5;
 console.log("You turn the card over. It is a " + cardValue + " of " + cardSuit + "!"); // edit this line to use template literal syntax.
@@ -8,6 +9,7 @@ console.log(`You turn the card over. It is a ${cardValue} of ${cardSuit}!`);
 
 
 /*Code Challenge 2: Objects */
+//CodePen Source: https://codepen.io/Hiddenflower/pen/vYmmmoO?editors=0011
 // 1 - white rabbit
 const rabbit = { 
     color: "white",
@@ -84,6 +86,7 @@ const rabbit = {
 
 
   /*Code Challenge 3: Class Inheritance */
+  //CodePen Source: https://codepen.io/Hiddenflower/pen/MWmmvRe?editors=0011
   class Monster {
     constructor(type, color) {
         this.type = type;
@@ -149,3 +152,41 @@ const scaryVampire= new Vampire("vampire", "pale", "female"); //Passing in the t
 
 //Calling the bite() method that was created for the vampire object
 scaryVampire.bite();
+
+
+/*Code Challenge 4: Using the Map Array Method */
+//CodePen Source: https://codepen.io/Hiddenflower/pen/vYmmemM?editors=0011 
+// 1
+const numbers = [1, 1, 2, 3, 5];
+const numbersAddFive = numbers.map(n => n+5); //Adding 5 to each number in the numbers array.  The results will be placed in the numbersAdd5 array.
+      
+// The below line should console.log: [6, 6, 7, 8, 10]
+console.log(numbersAddFive); 
+
+
+// 2 - uncomment the lines that start with "const" and "console.log"
+const numbersReformatted = numbers.map(n => n.toString() + ": "); //Turn the numbers into an array of strings (by using the toString() method), add a colon and a space after each number
+// The below line should console.log: ["1: ", "1: ", "2: ", "3: ", "5: "] 
+console.log(numbersReformatted);
+
+
+// 3
+const words = ["planes", "trains", "automobiles"];
+//Using the Slice() method: https://www.w3schools.com/jsref/jsref_slice_string.asp 
+const singularWords = words.map(s => s.slice(0,-1)); //The Slice() method extracts part of a string and returns the extracted parts in a new string (in this case it will return in the singularWords array). To display all the letters in the words, except s, to show up in the singularWords array, you have to start at the beginning of the word (0) and then stop before the last letter of the word (-1).
+// The below line should console.log: ["plane", "train", "automobile"]
+ console.log(singularWords);
+
+
+// 4:  Capitalize the First Letter of a String in JavaScript: https://www.freecodecamp.org/news/how-to-capitalize-the-first-letter-of-a-string-in-javascript/ 
+const firstLetters = words.map(f => f.slice(0,1)); //Only the first letter will be extracted from the word and displayed in the firstLetters array. 
+// The below line should console.log: ["p", "t", "a"]
+console.log(firstLetters);
+
+// Bonus:
+const capitalizedWords = words.map(c => 
+       c.slice(0,1).toUpperCase() + //Using slice to get the first letter of the word (0,1). Then using the toUpperCase() method to make the first letter capitalized.  Plus sign will include the rest of the word that is not capitalized (the code for this part of the word is posted below).
+       c.slice(1) //Getting the rest of the word starting from index 1 to the end of the stringl     
+       );
+// The below line should console.log: ["Planes", "Trains", "Automobiles"]
+console.log(capitalizedWords);
