@@ -5,6 +5,8 @@ console.log("You turn the card over. It is a " + cardValue + " of " + cardSuit +
 //Using Template Literal
 console.log(`You turn the card over. It is a ${cardValue} of ${cardSuit}!`);
 
+
+
 /*Code Challenge 2: Objects */
 // 1 - white rabbit
 const rabbit = { 
@@ -79,3 +81,71 @@ const rabbit = {
   
   //Calling the orderMethod() that will display what the person ordered in the Console
   order.orderMethod();
+
+
+  /*Code Challenge 3: Class Inheritance */
+  class Monster {
+    constructor(type, color) {
+        this.type = type;
+        this.color = color;
+        this.isScary = true;
+    }
+    roar() {
+        console.log(`The ${this.color} ${this.type} lets out a tremendous roar!`);
+    }
+}
+
+//Creating a new child class of the parent class (the parent class is Monster)
+class Vampire extends Monster {
+  constructor(type, color, gender) {
+    super(type, color); //Obtains the properties from the Parent Class (properties are type and color) using the super() method
+    this.gender= gender;
+  }
+  
+  //Method for the Vampire Class and vampire objects
+  bite() {
+    console.log(`The ${this.gender} ${this.type} that has a ${this.color} color bites you on the neck!`);
+  }
+}
+
+class Dragon extends Monster {
+    constructor(type, color, element) {
+        super(type, color);
+        this.element = element;
+    }
+    fly() {
+        console.log(`The ${this.color} ${this.element} ${this.type} flaps its wings and begins to fly.`);
+    }
+  evilSmile() {
+    console.log(`The ${this.color} ${this.type} having the element of ${this.element} smiles at you evilly.`);
+  }
+}
+
+class Werewolf extends Monster {
+    constructor(type, color) {
+        super(type, color);
+    }
+    howl() {
+        console.log(`The ${this.type} howls loudly.`);
+    }
+}
+
+//woodDragon Object
+const woodDragon = new Dragon("dragon", "brown", "wood");
+
+//Calling the roar() and fly() methods on the woodDragon object. Also called the evilSmile() method.
+woodDragon.roar();
+woodDragon.fly();
+woodDragon.evilSmile();
+
+//grassWerewolf Object
+const grassWerewolf= new Werewolf("grass werewolf", "green");
+
+//Calling the howl() method on the grassWerewolf object
+grassWerewolf.howl();
+
+//Creating a new object (called scaryVampire) using the Vampire class as a template
+const scaryVampire= new Vampire("vampire", "pale", "female"); //Passing in the type, color and gender of the vampire in the parameter list
+
+//Calling the bite() method that was created for the vampire object
+scaryVampire.bite();
