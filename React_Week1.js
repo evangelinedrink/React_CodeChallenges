@@ -190,3 +190,30 @@ const capitalizedWords = words.map(c =>
        );
 // The below line should console.log: ["Planes", "Trains", "Automobiles"]
 console.log(capitalizedWords);
+
+
+
+/*Code Challenge 5: Using the Filter Array Method */
+//CodePen Source: https://codepen.io/Hiddenflower/pen/XWRRzPv?editors=0011
+const pets = ["goldfish", "dog", "turtle", "tiger"]
+
+//1 
+const petsShortNames = pets.filter(n => n.length<=5 ); //Using the JavaScript String length to only get elements that have lengths of 5 letters or less. Found at: https://www.w3schools.com/jsref/jsref_length_string.asp
+// The below line should console.log: ["dog", "tiger"]
+console.log(petsShortNames);
+
+//2 - uncomment line 9 and line 11 when you've finished challenge 1
+const petsTNames = pets.filter(word => word.charAt(0)=== "t"); //Using charAt at position 0 (the first letter of the word) and if that first letter is equal to t, let filter() method take that word and place it in the petsTNames array. charAt() method: https://www.codegrepper.com/code-examples/javascript/check+first+letter+of+string
+// The below line should console.log: ["turtle", "tiger"] 
+console.log(petsTNames);
+
+const numbers = [3, 7, 4, 5, 10];
+//3 - uncomment line 15 and line 17 
+const numbersBiggerThanFour = numbers.filter(n => n>4 );  //Filter out only the number that are greater than 4.
+// The below line should console.log: [7, 5, 10]
+console.log(numbersBiggerThanFour);
+
+//Bonus - uncomment line 20 and line 22
+const evenNumbers = numbers.filter(n => n%2===0 ); //Filtering out only the even numbers.  When the number is even and divided by 2, there will be no remainder (remainder will be equal to zero).
+// The below line should console.log: [4, 10]
+console.log(evenNumbers);
