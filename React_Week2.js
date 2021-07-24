@@ -109,3 +109,48 @@ body {
   color: white;
 }
   */
+
+
+/*Code Challenge 3: Passing Props */
+//Code is found here: https://codepen.io/Hiddenflower/pen/qBmVyRx
+class App extends React.Component {
+
+    constructor(props) {
+      super(props);
+  
+      this.state = {
+        partyType: "birthday",
+        entertainment: "clowns",
+        venue: {
+          name: "Polly's Party Palace",
+          capacity: 120
+        },
+        expectedFriends: "Irina, Daniel, Quentin, Mary and Anna"
+      };
+    }
+  
+    render() {
+      return (
+        <div>
+          {/*Passing in the state properties as props to the Party Component*/}
+          <Party partyType={this.state.partyType} entertainment={this.state.entertainment} venue={this.state.venue} expectedFriends={this.state.expectedFriends}/>
+        </div>
+      );
+    }
+  };
+        
+    //Creating the React Component named Party
+    class Party extends React.Component {
+      render() {
+      return (
+         <div> 
+           <h3>Party Time! </h3> 
+           <p>This {this.props.partyType} party will be held at {this.props.venue.name} with a maximum capacity of {this.props.venue.capacity}. </p>
+           <p>Featured entertainement: {this.props.entertainment}!</p>
+          <p>List of friends that are expected to attend are: {this.props.expectedFriends}</p>
+         </div>
+       )    
+      }
+     }
+  
+  ReactDOM.render(<App />, document.getElementById('root'));
