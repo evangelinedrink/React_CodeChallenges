@@ -138,3 +138,36 @@ const GAMES = [
   }
   
   ReactDOM.render( <App />, document.getElementById("root"));
+
+
+
+  /*Code Challenge 2: Lifting State Up and Function Components*/
+  //Welcome Functional Component will show what will be displayed on the webpage
+function Welcome({bootcampName}) { //Destructuring the bootcampName, that way we can just type bootcampName instead of props.bootcampName
+    //Functional Components don't have a render() method, only a return() method.
+      return (
+        <h1>Welcome to {bootcampName}!</h1>
+      );
+  }
+  
+  //Creating the App Class Component
+  class App extends React.Component {
+    //Lifting the state, so that the state is initialized inside of the App's constructor
+      constructor(props) {
+        super(props);
+        this.state = {
+          bootcampName: "Nucamp"
+        };
+      }
+    
+    render() {  
+      return(
+        <div>
+          {/*Returning the Welcome component*/}
+          <Welcome bootcampName={this.state.bootcampName}/> {/*Passing in the bootcampName property into the Welcome Functional Component*/}
+        </div>
+      );
+    }
+  }
+  
+  ReactDOM.render(<App />, document.getElementById('root'));
