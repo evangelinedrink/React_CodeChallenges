@@ -76,3 +76,19 @@ if (1+1===2) {
   let dice = Math.floor(Math.random() * MAX + 1);
   console.log(`You need to roll an odd number to win:\n
     You roll the dice... It tumbles and comes to a stop, showing ${dice} ${(dice > 1) ? 'pips' : 'pip'}! -- ${isEvenTernary(dice) ? 'Better luck next time!' : 'You win!'}`);
+
+
+    
+/*Code Challenge 3: Regular Expressions (RegExp)*/
+function validate() {
+    let inputStr = document.getElementById("username").value;
+   
+  //Regex Metacharacters
+  const myReg =/^([a-zA-Z0-9]+\d+)/; // [a-zA-Z0-9] lets JavaScript know that anything with lowercase and uppercase letters and numbers from 0 to 9 can be in the password. The + makes the Regex to search for one or more times the previous elements. \d is used to check for numbers from 0 to 9. The + means to repeat the preceding math 1 or more times.
+  
+    if (myReg.test(inputStr)) 
+      alert("Username accepted");
+    else
+      alert("Username must contain only alphanumeric characters, contain a mininum of two characters, and end with a digit.");
+  }
+  
