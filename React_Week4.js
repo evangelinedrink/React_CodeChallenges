@@ -92,3 +92,44 @@ function validate() {
       alert("Username must contain only alphanumeric characters, contain a mininum of two characters, and end with a digit.");
   }
   
+
+  /*Code Challenge 4: Toggling Modals*/
+  // You have learned to use 'import' to bring in components from libraries in your React project. Using const is another way to do it that works better in Codepen. Do not be concerned about the difference at this time.
+const { Modal, ModalBody, Button } = Reactstrap;
+
+// The code you should pay attention to begins after this comment.
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.toggleModal = this.toggleModal.bind(this); //Ensures that "this" keyword is binded to the correct method (in this case to toggleModal). With an event handler in JSX, you call the method (in this case toggleModal) without using () after the toggleModal method/function.  This is why we have to bind the "this" keyword to toggleModal function.
+    
+    this.state = {
+      isModalOpen: false //Keeps track if the modal is open (true) or closed (false)
+    };
+  }
+  
+  toggleModal() {
+    this.setState({  //When the Modal is open (clicked on by the user) isModalOpen will be changed to the opposite of false (true), meaning that the Modal is opened.
+      isModalOpen: !this.state.isModalOpen
+    });
+  }
+  
+  render() {
+    return(
+      <React.Fragment>
+        <Button color="success" onClick={this.toggleModal}>Click on me!</Button> {/*When the button is clicked, the toggleModal method will start running.*/}
+        
+        {/*Creating the Modal. The modal is passing in the isModalOpen state and the toggle. isModalOpen is located in the state (inside of the constructor), so you will need the this.state.isModalOpen for this attribute.*/}
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}> {/*Reactstrap Modal component comes with two attributes, isOpen and toggle. isOpen attribute is false, the modal will be closed and hidden. If isOpen attribute is true
+                the modal will be opened and visible. toggle attribute makes it possible to close the modal when it is opened. */}
+        <ModalBody>
+          Hello World! This is the first modal in this CodePen.
+        </ModalBody>
+        </Modal>
+      </React.Fragment>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
