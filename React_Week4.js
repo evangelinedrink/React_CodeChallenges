@@ -133,3 +133,43 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
+
+  /*Code Challenge 5: Convert HTML to React*/
+  class Instructions extends React.Component {
+    render() {
+      return (
+        <div> {/*In JSX, you can only have one element in the return, but nested elements are fine in this one element*/}
+          <h1>Instructions</h1>
+            <p>
+            Time for a back-to-basics drill! Take the code in the HTML section of this            Codepen and React-ify it in the JS section. Use at least          <strong>two</strong> components. No need for Reactstrap - <a href="https://react-cn.github.io/react/docs/tags-and-attributes.html" target="_blank"><strong>use native JSX</strong></a>. And don't worry about the CSS section right now. When you are done, the rendered view with the white background should look the same, but the HTML section should contain nothing but the 'root' div.
+  </p>
+        </div>
+      )
+    }
+  }
+  
+  class ReactSite extends React.Component {
+    render() {
+      return (
+        <div>
+        <p>Are you <a href="https://reactjs.org/docs/thinking-in-react.html" target="_blank">thinking in React</a> yet?</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/140px-React-icon.svg.png" />
+         </div>
+      )
+    }
+  }
+  
+  //We need this App Component because the ReactDOM.render only accepts one Component.
+  //We will place the two above components, Instructions and ReactSite, inside of the App component so that it can render and be seen on the webpage
+  class App extends React.Component {
+    render() {
+      return(
+        <div>
+          <Instructions />
+          <ReactSite />
+        </div>
+      )
+    }
+  }
+  // Uncomment the below line.
+  ReactDOM.render(<App />, document.getElementById("root"));
